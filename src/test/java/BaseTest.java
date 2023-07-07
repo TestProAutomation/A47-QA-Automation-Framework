@@ -15,7 +15,7 @@ import java.time.Duration;
 
 public class BaseTest {
 
-    WebDriver driver = null;
+    public static WebDriver driver = null;
     WebDriverWait wait;
     Actions actions;
     public static String url = "https://qa.koel.app/";
@@ -26,10 +26,20 @@ public class BaseTest {
         WebDriverManager.chromedriver().setup();
     }
 
-    public void navigateToPage() {
-        driver.get(url);
+    @BeforeMethod
+    public void launchBrowser() {
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--remote-allow-origins=*");
     }
 
+    @AfterMethod
+    public void closeBrowser() {
+        driver.quit();
+    }
+
+    public static void navigateToPage() {
+        driver.get(url);
+    }
     public void provideEmail(String email) {
         WebElement emailField = driver.findElement(By.cssSelector("input[type='email']"));
         emailField.click();
