@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 
 
 public class Homework21 extends BaseTest {
-    String newPlaylistName = "Test Pro Edited Playlist2”;
+    String newPlaylistName = "Test Pro Edited Playlist2";
 
     @Test
     public void renamePlaylist() {
