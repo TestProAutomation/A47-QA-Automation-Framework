@@ -42,14 +42,14 @@ public class Homework17 extends BaseTest {
     }
 
     public void clickAddToBtn() throws InterruptedException {
-        WebElement addToBtn = driver.findElement(By.cssSelector("button.btn-add-to"));
+        WebElement addToBtn = driver.findElement(By.cssSelector(".btn-add-to"));
         addToBtn.click();
         Thread.sleep(2000);
     }
 
     public void choosePlaylist () throws InterruptedException {
         //playlist named "Test Pro Playlist"
-        WebElement playlistElement = driver.findElement(By.xpath("//section[@id ='songResultsWrapper']//li[contains(text(),'Test Pro Playlist')]"));
+        WebElement playlistElement = driver.findElement(By.xpath("//section[@id ='songResultsWrapper']//li[contains(text(),'Test Pro PlayList')]"));
         playlistElement.click();
         Thread.sleep(2000);
     }
