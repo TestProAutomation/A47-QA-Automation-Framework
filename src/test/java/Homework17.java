@@ -48,10 +48,10 @@ public class Homework17 extends BaseTest {
     }
 
     public void choosePlaylist () throws InterruptedException {
-        //playlist named "Test Pro Playlist"
-        WebElement playlistElement = driver.findElement(By.xpath("//*[@id='songResultsWrapper']/header/div[3]/div/section[1]/ul/li[49]"));
+        //playlist named "Test Name"
+        WebElement playlistElement = driver.findElement(By.xpath("//*[@id='songResultsWrapper']/header/div[3]/div/section[1]/ul/li[38]"));
         playlistElement.click();
-        Thread.sleep(2000);
+        Thread.sleep(5000);
     }
 
     public String getNotificationText() {
