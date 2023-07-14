@@ -38,32 +38,36 @@ public class BaseTest {
         driver.get(url);
     }
 
-    public static void provideEmail(String email) {
+    public void provideEmail(String email) {
         WebElement emailField = driver.findElement(By.cssSelector("input[type='email']"));
         emailField.click();
         emailField.clear();
         emailField.sendKeys(email);
     }
 
-    public static void providePassword(String password) {
+    public void providePassword(String password) {
         WebElement passwordField = driver.findElement(By.cssSelector("input[type='password']"));
         passwordField.click();
         passwordField.clear();
         passwordField.sendKeys(password);
     }
 
-    public static void clickSubmit() {
+    public void clickSubmit() {
         WebElement submit = driver.findElement(By.cssSelector("button[type=submit']"));
         submit.click();
     }
 
-    public void clickPlay() {
-        WebElement playNextButton = driver.findElement(By.xpath("//i[@data-testid='play-next-btn']"));
-        WebElement playButton = driver.findElement(By.xpath("//span[@data-testid='play-btn']"));
 
-        playNextButton.click();;
+    public void clickPlay() {
+        WebElement playNextButton = driver.findElement(By.xpath("//*[@id='mainFooter']/div[1]/i[2]"));
+        WebElement playButton = driver.findElement(By.xpath("//*[@id='mainFooter']/div[1]/span/span[2]"));
+
+        playNextButton.click();
         playButton.click();
     }
 
-
+    public boolean isSongPlaying() {
+        WebElement soundBar = driver.findElement(By.xpath("//*[@id='mainFooter']/div[2]/div[2]/div/button[1]/div"));
+        return soundBar.isDisplayed();
+    }
 }
