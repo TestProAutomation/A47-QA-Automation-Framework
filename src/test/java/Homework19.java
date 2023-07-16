@@ -13,12 +13,14 @@ public class Homework19 extends BaseTest {
         clickSubmit();
         openPlaylist();
         clickDeletePlaylistBtn();
+        confirmDelete();
+
         Assert.assertTrue(getDeletePlaylistMsg().contains(deletedPlaylistMsg));
     }
 
     public void openPlaylist() {
-        WebElement empltyPlaylist = driver.findElement(By.cssSelector(".playlist:nth-child(3)"));
-        empltyPlaylist.click();
+        WebElement emptyPlaylist = driver.findElement(By.cssSelector(".playlist:nth-child(3)"));
+        emptyPlaylist.click();
     }
 
     public void clickDeletePlaylistBtn() throws InterruptedException {
@@ -27,6 +29,10 @@ public class Homework19 extends BaseTest {
         Thread.sleep(2000);
     }
 
+    public void confirmDelete() {
+        WebElement confirmBtn = driver.findElement(By.cssSelector("button.ok"));
+        confirmBtn.click();
+    }
     public String getDeletePlaylistMsg() {
         WebElement notificationMsg = driver.findElement(By.cssSelector("div.success.show"));
         return notificationMsg.getText();

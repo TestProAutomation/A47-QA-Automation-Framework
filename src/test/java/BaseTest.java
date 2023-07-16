@@ -14,7 +14,7 @@ import java.time.Duration;
 public class BaseTest {
 
     public static WebDriver driver = null;
-    public String url = "https://qa.koel.app/";
+    public String url = "";
 
     @BeforeSuite
     static void setupClass() {
@@ -22,7 +22,7 @@ public class BaseTest {
     }
 
     @BeforeMethod
-    @Parameters({"BaseUrl"})
+    @Parameters({"BaseURL"})
     public void launchBrowser(String BaseURL) {
         // Added ChromeOptions argument below to fix websocket error
         ChromeOptions options = new ChromeOptions();
@@ -45,20 +45,18 @@ public class BaseTest {
 
     public void provideEmail(String email) {
         WebElement emailField = driver.findElement(By.cssSelector("input[type='email']"));
-        emailField.click();
         emailField.clear();
         emailField.sendKeys(email);
     }
 
     public void providePassword(String password) {
         WebElement passwordField = driver.findElement(By.cssSelector("input[type='password']"));
-        passwordField.click();
         passwordField.clear();
         passwordField.sendKeys(password);
     }
 
     public void clickSubmit() {
-        WebElement submit = driver.findElement(By.cssSelector("button[type=submit']"));
+        WebElement submit = driver.findElement(By.cssSelector("button[type='submit']"));
         submit.click();
     }
 
