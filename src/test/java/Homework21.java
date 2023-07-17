@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 
 
 public class Homework21 extends BaseTest {
-    String newPlaylistName = "Test Pro Edited Playlist2";
+    String newPlaylistName = "new name";
 
     @Test
     public void renamePlaylist() {
@@ -21,18 +21,18 @@ public class Homework21 extends BaseTest {
 
     public void doubleClickPlaylist() {
         WebElement playlistElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".playlist:nth-child(3)")));
-        actions.doubleClick(playlistElement);
+        actions.doubleClick(playlistElement).perform();
     }
 
     public void enterNewPlaylistName() {
         WebElement playlistInputField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[name='name']")));
-        playlistInputField.sendKeys(Keys.chord(Keys.CONTROL,"A",Keys.BACK_SPACE));
+        playlistInputField.sendKeys(Keys.chord(Keys.CONTROL, "A", Keys.BACK_SPACE));
         playlistInputField.sendKeys(newPlaylistName);
         playlistInputField.sendKeys(Keys.ENTER);
     }
 
     public boolean doesPlaylistExist() {
-        WebElement playlistElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("//a[text()='"+newPlaylistName)));
+        WebElement playlistElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[text()='"+newPlaylistName+"']")));
         return playlistElement.isDisplayed();
     }
 }
