@@ -7,10 +7,9 @@
         <classes>
             <class name="LoginTests"/>
             <class name="BaseTest"/>
-            <class name="PlaylistsTests"/>
-            <class name="BasePage"/>
-            <class name="HomePage"/>
-            <class name="LoginPage"/>
+            <class name="pages.BasePage"/>
+            <class name="pages.HomePage"/>
+            <class name="pages.LoginPage"/>
         </classes>
     </test>
 </suite>

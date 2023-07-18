@@ -1,3 +1,5 @@
+package pages;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -7,16 +9,16 @@ public class LoginPage extends BasePage {
         super(givenDriver);
     }
 
-    By emailField = By.ByCssSelector("input[type='email']");
-    By passworfField = By.ByCssSelector("input[type='password'");
-    By submitBtn = By.ByCssSelector("button[type='submit']");
+    By emailField = By.cssSelector("input[type='email']");
+    By passwordField = By.cssSelector("input[type='password'");
+    By submitBtn = By.cssSelector("button[type='submit']");
 
     public void provideEmail(String email) {
         findElement(emailField).sendKeys(email);
     }
 
     public void providePassword(String password) {
-        findElement(passworfField).sendKeys(password);
+        findElement(passwordField).sendKeys(password);
     }
 
     public void clickSubmit() {
