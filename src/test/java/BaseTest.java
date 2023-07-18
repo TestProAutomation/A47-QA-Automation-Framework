@@ -70,4 +70,9 @@ public class BaseTest {
         submit.click();
     }
 
+    public void doubleClickPlaylist() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".playlist:nth-child(3)")));
+        WebElement playlistElement = driver.findElement(By.cssSelector(".playlist:nth-child(3)"));
+        actions.doubleClick(playlistElement).perform();
+    }
 }
