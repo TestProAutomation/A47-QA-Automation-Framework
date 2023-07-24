@@ -25,8 +25,7 @@ public class BaseTest {
 
     @BeforeSuite
     static void setupClass() {
-  //      WebDriverManager.chromedriver().setup();
-        WebDriverManager.firefoxdriver().setup();
+        WebDriverManager.chromedriver().setup();
     }
 
     public static WebDriver pickBrowser(String browserName) {
