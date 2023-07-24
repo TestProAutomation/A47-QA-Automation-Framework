@@ -10,21 +10,15 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Parameters;
-
 import java.time.Duration;
-
 public class BaseTest {
-
     public static WebDriver driver = null;
     public static String url = "";
     public static WebDriverWait wait = null;
-
-
     @BeforeSuite
     static void setupClass() {
         WebDriverManager.chromedriver().setup();
     }
-
     @BeforeMethod
     @Parameters({"BaseURL"})
     public void launchBrowser(String BaseURL) {
@@ -43,19 +37,16 @@ public class BaseTest {
     public void navigateToPage() {
         driver.get(url);
     }
-
     @AfterMethod
     public void closeBrowser() {
         driver.quit();
     }
-
     public void provideEmail(String email) {
         WebElement emailField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[type='email']")));
         // WebElement emailField = driver.findElement(By.cssSelector("input[type='email']"));
         emailField.clear();
         emailField.sendKeys(email);
     }
-
     public void providePassword(String password) {
         WebElement passwordField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[type='password']")));
         // WebElement passwordField = driver.findElement(By.cssSelector("input[type='password']"));

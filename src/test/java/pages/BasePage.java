@@ -14,7 +14,6 @@ public class BasePage {
     public static WebDriverWait wait = null;
     public static Actions actions = null;
     public static String url = null;
-
     public BasePage(WebDriver givenDriver) {
         driver = givenDriver;
         wait = new WebDriverWait(driver, Duration.ofSeconds(5));

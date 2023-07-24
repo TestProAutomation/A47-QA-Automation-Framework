@@ -9,7 +9,6 @@ public class LoginPage extends BasePage {
     public LoginPage(WebDriver givenDriver) {
         super(givenDriver);
     }
-
     @FindBy (css = "input[type='email']")
     WebElement emailField;
     @FindBy (css = "input[type='password'")
