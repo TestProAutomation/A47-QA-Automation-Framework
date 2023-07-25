@@ -55,9 +55,6 @@ public class BaseTest {
 
     public static WebDriver pickBrowser(String browser) throws MalformedURLException {
         switch (browser) {
-            case "firefox":
-                WebDriverManager.firefoxdriver().setup();
-                return driver = new FirefoxDriver();
             case "MSEdge":
                 WebDriverManager.edgedriver().setup();
                 EdgeOptions edgeOptions = new EdgeOptions();
@@ -65,12 +62,15 @@ public class BaseTest {
                 return driver = new EdgeDriver(edgeOptions);
             case "cloud":
                 return lambdaTest();
+            case "firefox":
             default:
-                WebDriverManager.chromedriver().setup();
-                driver = new ChromeDriver();
-                ChromeOptions chromeOptions = new ChromeOptions();
-                chromeOptions.addArguments("--remote-allow-origins=*");
-                return driver = new ChromeDriver(chromeOptions);
+                WebDriverManager.firefoxdriver().setup();
+                return driver = new FirefoxDriver();
+//                WebDriverManager.chromedriver().setup();
+//                driver = new ChromeDriver();
+//                ChromeOptions chromeOptions = new ChromeOptions();
+//                chromeOptions.addArguments("--remote-allow-origins=*");
+//                return driver = new ChromeDriver(chromeOptions);
         }
     }
     @BeforeMethod
